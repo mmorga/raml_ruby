@@ -7,6 +7,7 @@ module Raml
     include Merge
     include Parent
     include Validation
+    include SecuredBy
 
     # @!attribute [r] base_uri_parameters
     #   @return [Hash<String, Raml::Parameter::BaseUriParameter>] the base URI parameters, keyed
@@ -152,11 +153,6 @@ module Raml
           resource_type_declarations.include? value
         ResourceTypeReference.new value, self
       end
-    end
-
-    def parse_secured_by(data)
-      # XXX ignored for now
-      []
     end
 
     def instantiate_resource_type
